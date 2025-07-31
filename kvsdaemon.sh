@@ -15,7 +15,7 @@ while true; do
 
     if echo "$LINE" | grep -q "^GET /?kill"; then
       echo "Killing KiViStore..."
-      reboot now
+      reboot
     fi
     
     SAFE_NAME=$(echo "$LINE" | sed -n 's/^GET \/?.*name=\([^ &]*\).*/\1/p')
@@ -24,7 +24,7 @@ while true; do
       echo -e "HTTP/1.1 200 OK\r\nContent-Type: text/plain\r\n\r\nInstalling, wait untill restart..." > /mnt/us/KiViStore/tmp/response.txt
       bash /mnt/us/KiViStore/installers/$SAFE_NAME.sh
       sleep 5
-      reboot now
+      reboot
     fi
 
    
