@@ -7,13 +7,13 @@
     <style>
         body {
             margin: 0;
-            padding: 20px;
+            padding: 0px;
             background-color: #f5f5f5;
             display: flex;
             flex-direction: column;
             justify-content: center;
             align-items: center;
-            min-height: 100vh;
+            height: 100vh;
             font-family: Arial, sans-serif;
         }
         
@@ -34,17 +34,22 @@
         
         .grid-container {
             display: grid;
-            grid-template-columns: repeat(4, 120px);
-            grid-template-rows: repeat(6, 70px);
-            gap: 12px;
-            margin-bottom: 30px;
+            grid-template-columns: repeat(4, 140px);
+            grid-template-rows: repeat(8, 65px);
+            gap: 5px;
+            margin-bottom: 10px;
         }
-        
+        .bottom-grid-container {
+            display: grid;
+            grid-template-columns: repeat(4, 140px);
+            gap: 5px;
+            margin-bottom: 20px;
+        }
         .button {
-            width: 120px;
-            height: 70px;
+            width: 135px;
+            height: 60px;
             background-color: #ffffff;
-            border: 2px solid #e0e0e0;
+            border: 2px solid #e0e0e060;
             border-radius: 12px;
             cursor: pointer;
             display: flex;
@@ -58,10 +63,12 @@
         }
         
         .close-button {
+            grid-column: span 2;
+            width: 280px;
             font-size: 20px;
-            background-color: #ff0000;
+            background-color: #770000;
             color: white;
-            border-color: #ff0000;
+            border-color: #770000;
         }
 
         .store-label {
@@ -74,6 +81,31 @@
         }
     </style>
     <script>
+      var currentPage = 1;
+      function next() {
+        const gridContainer = document.getElementById('page-1');
+        if (currentPage === 1) {
+          gridContainer.style.display = 'none';
+          document.getElementById('page-2').style.display = 'grid';
+          currentPage = 2;
+        } else {
+          gridContainer.style.display = 'grid';
+          document.getElementById('page-2').style.display = 'none';
+          currentPage = 1;
+        }
+      }
+      function prev() {
+        const gridContainer = document.getElementById('page-1');
+        if (currentPage === 2) {
+          gridContainer.style.display = 'grid';
+          document.getElementById('page-2').style.display = 'none';
+          currentPage = 1;
+        } else {
+          gridContainer.style.display = 'none';
+          document.getElementById('page-2').style.display = 'grid';
+          currentPage = 2;
+        }
+      }
       function runInstaller(btn) {
         const button = btn.id;
         fetch(`http://127.0.0.1:1122/?name=${button}`)
@@ -95,11 +127,11 @@
         <img src="./kvs.png" alt="KiViStore Logo">
     </div>
     
-    <div class="grid-container">
+    <div class="grid-container" id="page-1">
         <button onclick="runInstaller(this)" class="button" id="kf">KindleFetch</button>
         <button onclick="runInstaller(this)" class="button" id="kt">Kterm</button>
         <button onclick="runInstaller(this)" class="button" id="btn-3">3</button>
-        <button onclick="killStore()" class="button close-button" id="btn-close" value="close">Close and restart</button>
+        <button onclick="runInstaller(this)" class="button" id="btn-4">4</button>
         <button onclick="runInstaller(this)" class="button" id="btn-5">5</button>
         <button onclick="runInstaller(this)" class="button" id="btn-6">6</button>
         <button onclick="runInstaller(this)" class="button" id="btn-7">7</button>
@@ -120,6 +152,57 @@
         <button onclick="runInstaller(this)" class="button" id="btn-22">22</button>
         <button onclick="runInstaller(this)" class="button" id="btn-23">23</button>
         <button onclick="runInstaller(this)" class="button" id="btn-24">24</button>
+        <button onclick="runInstaller(this)" class="button" id="btn-25">25</button>
+        <button onclick="runInstaller(this)" class="button" id="btn-26">26</button>
+        <button onclick="runInstaller(this)" class="button" id="btn-27">27</button>
+        <button onclick="runInstaller(this)" class="button" id="btn-28">28</button>
+        <button onclick="runInstaller(this)" class="button" id="btn-29">29</button>
+        <button onclick="runInstaller(this)" class="button" id="btn-30">30</button>
+        <button onclick="runInstaller(this)" class="button" id="btn-31">31</button>
+        <button onclick="runInstaller(this)" class="button" id="btn-32">32</button>
+    </div>
+
+        
+    <div class="grid-container" id="page-2"style="display: none;">
+        <button onclick="runInstaller(this)" class="button" id="btn-1">1</button>
+        <button onclick="runInstaller(this)" class="button" id="btn-2">2</button>
+        <button onclick="runInstaller(this)" class="button" id="btn-3">3</button>
+        <button onclick="runInstaller(this)" class="button" id="btn-4">4</button>
+        <button onclick="runInstaller(this)" class="button" id="btn-5">5</button>
+        <button onclick="runInstaller(this)" class="button" id="btn-6">6</button>
+        <button onclick="runInstaller(this)" class="button" id="btn-7">7</button>
+        <button onclick="runInstaller(this)" class="button" id="btn-8">8</button>
+        <button onclick="runInstaller(this)" class="button" id="btn-9">9</button>
+        <button onclick="runInstaller(this)" class="button" id="btn-10">10</button>
+        <button onclick="runInstaller(this)" class="button" id="btn-11">11</button>
+        <button onclick="runInstaller(this)" class="button" id="btn-12">12</button>
+        <button onclick="runInstaller(this)" class="button" id="btn-13">13</button>
+        <button onclick="runInstaller(this)" class="button" id="btn-14">14</button>
+        <button onclick="runInstaller(this)" class="button" id="btn-15">15</button>
+        <button onclick="runInstaller(this)" class="button" id="btn-16">16</button>
+        <button onclick="runInstaller(this)" class="button" id="btn-17">17</button>
+        <button onclick="runInstaller(this)" class="button" id="btn-18">18</button>
+        <button onclick="runInstaller(this)" class="button" id="btn-19">19</button>
+        <button onclick="runInstaller(this)" class="button" id="btn-20">20</button>
+        <button onclick="runInstaller(this)" class="button" id="btn-21">21</button>
+        <button onclick="runInstaller(this)" class="button" id="btn-22">22</button>
+        <button onclick="runInstaller(this)" class="button" id="btn-23">23</button>
+        <button onclick="runInstaller(this)" class="button" id="btn-24">24</button>
+        <button onclick="runInstaller(this)" class="button" id="btn-25">25</button>
+        <button onclick="runInstaller(this)" class="button" id="btn-26">26</button>
+        <button onclick="runInstaller(this)" class="button" id="btn-27">27</button>
+        <button onclick="runInstaller(this)" class="button" id="btn-28">28</button>
+        <button onclick="runInstaller(this)" class="button" id="btn-29">29</button>
+        <button onclick="runInstaller(this)" class="button" id="btn-30">30</button>
+        <button onclick="runInstaller(this)" class="button" id="btn-31">31</button>
+        <button onclick="runInstaller(this)" class="button" id="btn-32">32</button>
+    </div>
+
+    <div class="bottom-grid-container">
+
+        <button onclick="prev()" class="button" id="btn-33"><<</button>
+        <button onclick="killStore()" class="button close-button" id="btn-close" value="close">Close and restart</button>
+        <button onclick="next()" class="button" id="btn-36">>></button>
     </div>
     
     <div class="store-label">KiViStore</div>
