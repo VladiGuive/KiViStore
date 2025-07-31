@@ -17,6 +17,7 @@ update() {
     eips 1 1 "Updating KiViStore..."
     mkdir /tmp/KiViStoreIcons
     mv /mnt/us/KiViStore/icons/* /tmp/KiViStoreIcons/
+    rm -rf /mnt/us/KiViStore
     download
     mv /tmp/KiViStoreIcons/* /mnt/us/KiViStore/icons/
     rm -rf /tmp/KiViStoreIcons/
